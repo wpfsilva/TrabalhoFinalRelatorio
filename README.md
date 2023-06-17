@@ -1,7 +1,6 @@
 # TrabalhoFinalRelatorio
-
-Trabalho desenvolvido por :<br>
-Waldemar Silva (eu)<br>
-Gabriel Gama<br>
-Rhuan Flores<br>
-Alvaro José<br>
+<h2>Trabalho desenvolvido por :</h2>
+<p><strong>Waldemar Silva</strong> (eu)</p>
+<p>Gabriel Gama</p>
+<p>Rhuan Flores</p>
+<p>Alvaro José</p>
