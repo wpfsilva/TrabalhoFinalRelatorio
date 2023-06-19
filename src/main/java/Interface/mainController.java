@@ -200,6 +200,11 @@ public class mainController implements Initializable {
     	
     	
     	 String data = dataRefD.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    	 
+ 
+    	
+        
+    	 
     	 labelDiario.setText(ComandosSistema.gerarRelatorio("diario", data));
 
     }
@@ -216,7 +221,7 @@ public class mainController implements Initializable {
     public void mostrarMensal() {
         String data = dataRefM.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));//String dataRef = "06/2023";
         String[] ano = data.split("/");
-        String dataa = ano[1];
+        String dataa = ano[1] +"/"+ ano[2];
         
         labelMensal.setText(ComandosSistema.gerarRelatorio("mensal", dataa));
     }

@@ -22,59 +22,83 @@ public class RelatorioAnual implements Relatorio {
 	}
 
 	@Override
-	public String gerarRelatorio(String dataRef) {
-		HashMap<String, Float> entradas = new HashMap<>();
-		HashMap<String, Float> saidas = new HashMap<>();
-
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("trabalhoFinalPOO");
-		EntityManager em = emf.createEntityManager();
-
-		try {
-			String jpql = "SELECT a FROM Aplicacao a WHERE a.dataIn LIKE :ano";
-			TypedQuery<Aplicacao> query = em.createQuery(jpql, Aplicacao.class);
-			query.setParameter("ano", "%" + anoRef);
-			List<Aplicacao> resultados = query.getResultList();
-			for (Aplicacao aplicacao : resultados) {
-				entradas.put(aplicacao.getNome(), aplicacao.getValor());
-			}
-
-			jpql = "SELECT a FROM Despesa a WHERE a.dataIn LIKE :ano";
-			TypedQuery<Despesa> query2 = em.createQuery(jpql, Despesa.class);
-			query2.setParameter("ano", "%" + anoRef);
-			List<Despesa> resultados2 = query2.getResultList();
-			for (Despesa despesa : resultados2) {
-				saidas.put(despesa.getNome(), despesa.getValor());
-			}
-
-			jpql = "SELECT a FROM Receita a WHERE a.dataIn LIKE :ano";
-			TypedQuery<Receita> query4 = em.createQuery(jpql, Receita.class);
-			query4.setParameter("ano", "%" + anoRef);
-			List<Receita> resultados4 = query4.getResultList();
-			for (Receita receita : resultados4) {
-				entradas.put(receita.getNome(), receita.getValor());
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			em.close();
-			emf.close();
-		}
-
-		Float total = 0f;
+	public String gerarRelatorio(String anoRef) {
+		RelatorioMensal rl = new RelatorioMensal();
 		texto = "Ano: " + anoRef + "\n";
-		texto += "Entradas:\n";
-		for (String chave : entradas.keySet()) {
-			Float valor = entradas.get(chave);
-			texto += chave + ": " + Float.toString(valor) + "\n";
-			total += valor;
-		}
-		texto += "Saídas:\n";
-		for (String chave : saidas.keySet()) {
-			Float valor = saidas.get(chave);
-			texto += chave + ": " + Float.toString(valor) + "\n";
-			total -= valor;
-		}
-		texto += "Total: " + Float.toString(total);
+		Float valorTotal = (float) 0;
+		texto += rl.gerarRelatorio("01/" + anoRef);
+		String[] textoAux = texto.split("\n");
+		String[] ultEle = textoAux[textoAux.length-1].split(" ");
+		Float valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("02/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("03/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("04/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("05/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("06/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("07/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("08/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("09/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("10/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("11/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += rl.gerarRelatorio("12/" + anoRef);
+		textoAux = texto.split("\n");
+		ultEle = textoAux[textoAux.length-1].split(" ");
+		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
+		valorTotal += valorUlt;
+		
+		texto += "Valor Final do Ano: " + String.valueOf(valorTotal)+"\n";
 		return texto;
 	}
 }

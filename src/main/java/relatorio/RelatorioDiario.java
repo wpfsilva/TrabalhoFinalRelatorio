@@ -46,13 +46,14 @@ public class RelatorioDiario implements Relatorio {
 				saidas.put(despesa.getNome(), despesa.getValor());
 			}
 
-			jpql = "SELECT a FROM Emprestimo a";
+			jpql = "SELECT a FROM Emprestimo a WHERE a.dataIn LIKE :diaMesAno";
 			TypedQuery<Emprestimo> query3 = em.createQuery(jpql, Emprestimo.class);
+			query3.setParameter("diaMesAno", "%" + dataRef + "%");
 			List<Emprestimo> resultados3 = query3.getResultList();
 			for (Emprestimo emprestimo : resultados3) {
 				Float valorMes = emprestimo.getValorData(dataRef);
 				if (valorMes > 0) {
-					entradas.put(emprestimo.getNome(), emprestimo.getParcela());
+					saidas.put(emprestimo.getNome(), emprestimo.getParcela());
 				}
 			}
 
@@ -84,7 +85,7 @@ public class RelatorioDiario implements Relatorio {
 			texto += chave + ": " + Float.toString(valor) + "\n";
 			total -= valor;
 		}
-		texto += "Total: " + Float.toString(total);
+		texto += "Total: " + Float.toString(total)+"\n";
 		return texto;
 	}
 }

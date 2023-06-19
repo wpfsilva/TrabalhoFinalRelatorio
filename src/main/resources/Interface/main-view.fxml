@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -547,15 +548,19 @@
                                                 <Insets top="10.0" />
                                              </VBox.margin>
                                           </GridPane>
-                                          
-                                          <Label fx:id="labelDiario" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" styleClass="tab-label" text="Resultado:">
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                             <padding>
-                                                <Insets bottom="5.0" />
-                                             </padding>
-                                          </Label>
+                                          <ScrollPane>
+                                             <content>
+                                                
+                                                <Label fx:id="labelDiario" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" styleClass="tab-label" text="Resultado:">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="5.0" />
+                                                   </padding>
+                                                </Label>
+                                             </content>
+                                          </ScrollPane>
                                        </children></VBox>
                       </children>
                               </AnchorPane>
@@ -590,15 +595,19 @@
                                                 <Insets top="10.0" />
                                              </VBox.margin>
                                           </GridPane>
-                                         
-                                          <Label fx:id="labelSemanal" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" styleClass="tab-label" text="Resultado:">
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                             <padding>
-                                                <Insets bottom="5.0" />
-                                             </padding>
-                                          </Label>
+                                          <ScrollPane>
+                                             <content>
+                                               
+                                                <Label fx:id="labelSemanal" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" styleClass="tab-label" text="Resultado:">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="5.0" />
+                                                   </padding>
+                                                </Label>
+                                             </content>
+                                          </ScrollPane>
                                        </children></VBox>
                       </children>
                               </AnchorPane>
@@ -633,15 +642,19 @@
                                                 <Insets top="10.0" />
                                              </VBox.margin>
                                           </GridPane>
-                                          
-                                          <Label fx:id="labelMensal" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" styleClass="tab-label" text="Resultado:">
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                             <padding>
-                                                <Insets bottom="5.0" />
-                                             </padding>
-                                          </Label>
+                                          <ScrollPane>
+                                             <content>
+                                                
+                                                <Label fx:id="labelMensal" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" styleClass="tab-label" text="Resultado:">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="5.0" />
+                                                   </padding>
+                                                </Label>
+                                             </content>
+                                          </ScrollPane>
                                        </children></VBox>
                       </children>
                               </AnchorPane>
@@ -675,15 +688,19 @@
                                              <VBox.margin>
                                                 <Insets top="10.0" />
                                              </VBox.margin>
-                                          </GridPane>                                       
-                                          <Label fx:id="labelAnual" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" styleClass="tab-label" text="Resultado:">
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                             <padding>
-                                                <Insets bottom="5.0" />
-                                             </padding>
-                                          </Label>
+                                          </GridPane>
+                                          <ScrollPane>
+                                             <content>                                       
+                                                <Label fx:id="labelAnual" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" styleClass="tab-label" text="Resultado:">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="5.0" />
+                                                   </padding>
+                                                </Label>
+                                             </content>
+                                          </ScrollPane>
                                        </children>
                                     </VBox>
                                  </children>

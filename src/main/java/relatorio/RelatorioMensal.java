@@ -48,13 +48,16 @@ public class RelatorioMensal implements Relatorio {
             	saidas.put(aplicacao.getNome(), aplicacao.getValor());
             }
             
-            jpql = "SELECT a FROM Emprestimo";
+            jpql = "SELECT b FROM Emprestimo b";
             TypedQuery<Emprestimo> query3 = em.createQuery(jpql, Emprestimo.class);
             List<Emprestimo> resultados3 = query3.getResultList();
             for (Emprestimo aplicacao : resultados3) {
             	Float valorMes = aplicacao.getValorMes(dataRef);
+            	
+            	
             	if(valorMes > 0) {
-            		entradas.put(aplicacao.getNome(), aplicacao.getParcela());
+            		saidas.put(aplicacao.getNome(), aplicacao.getParcela());
+            		
             	}
             }
             
@@ -85,7 +88,7 @@ public class RelatorioMensal implements Relatorio {
             texto += chave + ": " + Float.toString(valor) + "\n";
             total -= valor;
         }
-        texto += "Total: " + Float.toString(total);
+        texto += "Total: " + Float.toString(total)+ "\n";
 		return texto;
 	}
 

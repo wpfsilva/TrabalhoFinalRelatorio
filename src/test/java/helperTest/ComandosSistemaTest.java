@@ -17,24 +17,26 @@ import relatorio.*;
 class ComandosSistemaTest {
 
     private ComandosSistema comandosSistema;
+   private  FabricaRelatorio fr;
 
     @BeforeEach
     void setUp() {
         comandosSistema = new ComandosSistema();
+        fr = new FabricaRelatorio();
     }
 
     @AfterEach
     void tearDown() {
-        // Realizar limpeza após cada teste
+        
     }
 
     @Test
     void inserirAplicacao() {
         
-        Aplicacao aplicacao = new Aplicacao("teste1", "2023-06-17", "cenario teste", 8f, 0);
-        aplicacao.setNome("teste1junit");
+        Aplicacao aplicacao = new Aplicacao("teste14", "2023-06-17", "cenario teste", 8f, 0);
+        aplicacao.setNome("aplicacao");
        
-        boolean resultado = comandosSistema.inserirAplicacao(aplicacao);
+        boolean resultado = ComandosSistema.inserirAplicacao(aplicacao);
 
         
         assertTrue(resultado);
@@ -44,14 +46,9 @@ class ComandosSistemaTest {
 
     @Test
     void inserirDespesa() {
-        
-        Despesa despesa = new Despesa("teste2", "2023-06-18", "cenario teste2", 4f);
+        Despesa despesa = new Despesa("despesa", "2023-06-18", "cenario teste2", 4f);
        
-        
-
-       
-        boolean resultado = comandosSistema.inserirDespesa(despesa);
-
+        boolean resultado = ComandosSistema.inserirDespesa(despesa);
         
         assertTrue(resultado);
     }
@@ -60,26 +57,24 @@ class ComandosSistemaTest {
 
     @Test
     void inserirEmprestimo() {
+        Emprestimo emprestimo = new Emprestimo("emprestimo", "2023-06-17", "petshop", 2f, 8f, 2, 2f);
        
-        Emprestimo emprestimo = new Emprestimo("gabriel", "2023-06-17", "cachorras", 2f, 8f, 2, 2f);
-       
-       
-        boolean resultado = comandosSistema.inserirEmprestimo(emprestimo);
-
+        boolean resultado = ComandosSistema.inserirEmprestimo(emprestimo);
         
         assertTrue(resultado);
     }
+
 
     
 
     @Test
     void inserirReceita() {
        
-        Receita receita = new Receita("teste4", "2023-06-20", "cenario teste4", 10f);
+        Receita receita = new Receita("receita", "2023-06-20", "cenario teste42", 10f);
       
       
        
-        boolean resultado = comandosSistema.inserirReceita(receita);
+        boolean resultado = ComandosSistema.inserirReceita(receita);
 
         
         assertTrue(resultado);
@@ -87,82 +82,50 @@ class ComandosSistemaTest {
     
     
     @Test
-    void gerarRelatorio() {
-        String tipo = "anual";
+    public void testMostrarDiaria() {
+        String dataRef = "19/06/2023";
+        String resultadoEsperado = "Dia: 19/06/2023 Entradas: /n teste: 2.0 Saidas: /n sas:2.0 Total: 0.0";
+        
+        
+      
+        String resultado = ComandosSistema.gerarRelatorio("diario",dataRef);
+        
+        assertEquals(resultadoEsperado, resultado);
+    }
+
+    @Test
+    public void testMostrarSemanal() {
+        String dataRef = "17/06/2023";
+        String resultadoEsperado = "Relatório semanal";
+        
+     
+        
+        
+      
+        String resultado = ComandosSistema.gerarRelatorio("semanal",dataRef);
+        
+        assertEquals(resultadoEsperado, resultado);
+    }
+
+    @Test
+    public void testMostrarMensal() {
+        String dataRef = "06/2023";
+        String resultadoEsperado = "Relatório mensal"; 
+        
+        String resultado = ComandosSistema.gerarRelatorio("mensal",dataRef);
+        
+        assertEquals(resultadoEsperado, resultado);
+    }
+
+    @Test
+    public void testMostrarAnual() {
         String dataRef = "2023";
-
-        RelatorioAnual relatorio = new RelatorioAnual(dataRef);
-
-        String relatorioString = relatorio.gerarRelatorio(dataRef);
-
-        assertNotNull(relatorioString);
-        assertTrue(relatorioString.contains("Relatório"));
-
-        System.out.println(relatorioString);
-    }
-    
-    /*
-    @Test
-    void gerarRelatorio_DeveRetornarRelatorioValido() {
-       
-        String tipo = "anual";
-        String dataRef = "2023"; 
-
+        String resultadoEsperado = "Relatório anual"; 
         
-        String relatorio = comandosSistema.gerarRelatorio(tipo, dataRef);
-
-      
-        assertNotNull(relatorio);
-        assertTrue(relatorio.contains("Relatório"));
+        String resultado = ComandosSistema.gerarRelatorio("anual",dataRef);
+        
+        assertEquals(resultadoEsperado, resultado);
     }
     
     
-
-    @Test
-    void deletarReceita_DeveDeletarReceitaExistente() {
-      
-        String nome = "asda";
-      String dataOut = "2023-06-17";
-       
-        boolean resultado = comandosSistema.deletarReceita(nome, dataOut);
-
-       
-        assertTrue(resultado);
-    }
-    @Test
-    void deletarEmprestimo_DeveDeletarEmprestimoExistente() {
-       
-        String nome = "EmprestimoExistente";
-        String dataOut = LocalDate.now().toString();
-
-       
-        boolean resultado = comandosSistema.deletarEmprestimo(nome, dataOut);
-
-       
-        assertTrue(resultado);
-    }
-    @Test
-    void deletarDespesa_DeveDeletarDespesaExistente() {
-       
-        String nome = "DespesaExistente";
-        String dataOut = LocalDate.now().toString(); 
-
-       
-        boolean resultado = comandosSistema.deletarDespesa(nome, dataOut);
-
-        
-        assertTrue(resultado);
-    }
-    @Test
-    void deletarAplicacao_DeveDeletarAplicacaoExistente() {
-       
-        String nome = "AplicacaoExistente";
-        String dataOut = LocalDate.now().toString();
-        
-        boolean resultado = comandosSistema.deletarAplicacao(nome, dataOut);
-
-        
-        assertTrue(resultado);
-    }
-    */
 }

@@ -23,42 +23,42 @@ public class RelatorioSemanal implements Relatorio {
 		valorTotal += valorUlt;
 		
 		dataFinal = confereData(dataFinal);
-		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) + 1) + "/" + dataFinal[1] + "/" + dataFinal[2]);
+		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) ) + "/" + dataFinal[1] + "/" + dataFinal[2]);
 		textoAux = texto.split("\n");
 		ultEle = textoAux[textoAux.length-1].split(" ");
 		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
 		valorTotal += valorUlt;
 		
 		dataFinal = confereData(dataFinal);
-		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) + 2) + "/" + dataFinal[1] + "/" + dataFinal[2]);
+		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) ) + "/" + dataFinal[1] + "/" + dataFinal[2]);
 		textoAux = texto.split("\n");
 		ultEle = textoAux[textoAux.length-1].split(" ");
 		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
 		valorTotal += valorUlt;
 		
 		dataFinal = confereData(dataFinal);
-		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) + 3) + "/" + dataFinal[1] + "/" + dataFinal[2]);
+		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) ) + "/" + dataFinal[1] + "/" + dataFinal[2]);
 		textoAux = texto.split("\n");
 		ultEle = textoAux[textoAux.length-1].split(" ");
 		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
 		valorTotal += valorUlt;
 		
 		dataFinal = confereData(dataFinal);
-		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) + 4) + "/" + dataFinal[1] + "/" + dataFinal[2]);
+		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) ) + "/" + dataFinal[1] + "/" + dataFinal[2]);
 		textoAux = texto.split("\n");
 		ultEle = textoAux[textoAux.length-1].split(" ");
 		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
 		valorTotal += valorUlt;
 		
 		dataFinal = confereData(dataFinal);
-		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) + 5) + "/" + dataFinal[1] + "/" + dataFinal[2]);
+		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) ) + "/" + dataFinal[1] + "/" + dataFinal[2]);
 		textoAux = texto.split("\n");
 		ultEle = textoAux[textoAux.length-1].split(" ");
 		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
 		valorTotal += valorUlt;
 		
 		dataFinal = confereData(dataFinal);
-		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) + 6) + "/" + dataFinal[1] + "/" + dataFinal[2]);
+		texto += tl.gerarRelatorio(String.valueOf(Integer.parseInt(dataFinal[0]) )+ "/" + dataFinal[1] + "/" + dataFinal[2]);
 		textoAux = texto.split("\n");
 		ultEle = textoAux[textoAux.length-1].split(" ");
 		valorUlt = Float.parseFloat(ultEle[ultEle.length-1]);
